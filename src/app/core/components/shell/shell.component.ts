@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShellComponent implements OnInit {
 
+  isCollapsed = false;
+
   constructor() { }
 
   ngOnInit(): void {
