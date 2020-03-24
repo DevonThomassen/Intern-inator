@@ -5,6 +5,7 @@ import { ShellComponent } from './core/components/shell/shell.component';
 const routes: Routes = [
   { path: '', component: ShellComponent },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
+  { path: '**', redirectTo: ''}
 ];
 
 @NgModule({
