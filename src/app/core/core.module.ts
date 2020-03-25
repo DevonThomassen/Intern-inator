@@ -12,6 +12,7 @@ import { ShellComponent } from './components/shell/shell.component';
 import { SharedModule } from '../shared';
 import { environment } from 'src/environments/environment';
 import { BaseInterceptor, TokenInterceptor } from './interceptors';
+import { JwtModule } from '@auth0/angular-jwt';
 
 registerLocaleData(nl);
 
@@ -24,7 +25,14 @@ registerLocaleData(nl);
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => '',
+        whitelistedDomains: ['testapi.jarpiscloud.nl']
+      }
+    }),
+
   ],
   providers: [
     { provide: NZ_I18N, useValue: nl_NL },
