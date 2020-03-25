@@ -23,7 +23,6 @@ export class BaseInterceptor implements HttpInterceptor {
       })
 
     });
-    console.log(req);
     return next.handle(req);
   }
 }
