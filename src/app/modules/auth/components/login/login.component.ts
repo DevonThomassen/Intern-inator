@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 
 @Component({
@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     this.loading = true;
-    console.log(this.loginForm.value);
     this.auth.login(this.loginForm.value).subscribe(
       () => {
         this.loading = false;
