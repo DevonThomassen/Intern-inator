@@ -11,7 +11,7 @@ import nl from '@angular/common/locales/nl';
 import { ShellComponent } from './components/shell/shell.component';
 import { SharedModule } from '../shared';
 import { environment } from 'src/environments/environment';
-import { BaseInterceptor } from './interceptors/base.interceptor';
+import { BaseInterceptor, TokenInterceptor } from './interceptors';
 
 registerLocaleData(nl);
 
@@ -30,6 +30,7 @@ registerLocaleData(nl);
     { provide: NZ_I18N, useValue: nl_NL },
     { provide: 'BASE_API_URL', useValue: environment.API_URL },
     { provide: HTTP_INTERCEPTORS, useClass: BaseInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   exports: [ShellComponent]
 })
