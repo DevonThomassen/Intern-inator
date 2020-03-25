@@ -10,10 +10,13 @@ import { AuthenticationService } from 'src/app/core/services/authentication.serv
 export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
-    userName: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
     // remember: new FormControl(true)
   });
+
+  loading = false;
+  hasError = false;
 
   constructor(private auth: AuthenticationService) { }
 
@@ -21,8 +24,18 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(): void {
+    this.loading = true;
     console.log(this.loginForm.value);
-    this.auth.login(this.loginForm.value);
+    this.auth.login(this.loginForm.value).subscribe(
+      () => {
+        this.loading = false;
+      },
+      err => {
+        this.loading = false;
+        this.hasError = true;
+        console.log(err);
+      }
+    );
   }
 
 }
