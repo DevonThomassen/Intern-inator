@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WelcomeComponent } from './components/welcome/welcome.component';
+import { WelcomeComponent, LogEntryComponent } from './components';
 
 
 const routes: Routes = [
   {
     path: 'welcome',
     component: WelcomeComponent
+  },
+  {
+    path: 'log-entry',
+    component: LogEntryComponent
   },
   {
     path: '**',

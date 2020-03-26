@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { PagesRoutingModule } from './pages-routing.module';
-import { WelcomeComponent } from './components/welcome/welcome.component';
+import { WelcomeComponent, LogEntryComponent } from './components';
+import { SharedModule } from 'src/app/shared';
 
 
 @NgModule({
-  declarations: [WelcomeComponent],
+  declarations: [WelcomeComponent, LogEntryComponent],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export class PagesModule { }
