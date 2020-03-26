@@ -5,9 +5,8 @@
   <div formGroupName="data">
     <nz-time-picker formControlName="startTime" nzFormat="HH:mm" [nzMinuteStep]="15" [nzDefaultOpenValue]="defaultValues.startTime"></nz-time-picker>
     <nz-time-picker formControlName="endTime" nzFormat="HH:mm" [nzMinuteStep]="15" [nzDefaultOpenValue]="defaultValues.endTime"></nz-time-picker>
-    <textarea formControlName="content" rows="4" nz-input></textarea> <!--[disabled]="disabled"-->
+    <textarea formControlName="content" rows="4" nz-input></textarea>
   </div>
     <button nz-button nzType="primary" nzBlock>Primary</button>
 </form>
 <pre nz-paragraph nzCopyable nzCopyText="sdffsdfsfsfd">{{outputString}}</pre>
-  
