@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import nl from '@angular/common/locales/nl';
-import { ShellComponent } from './components/shell/shell.component';
+import { ShellComponent } from './components';
 import { SharedModule } from '../shared';
 import { environment } from 'src/environments/environment';
 import { BaseInterceptor, ErrorInterceptor, TokenInterceptor } from './interceptors';
