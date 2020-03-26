@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { IconsProviderModule } from '../icons-provider.module';
@@ -29,7 +29,7 @@ registerLocaleData(nl);
     JwtModule.forRoot({
       config: {
         tokenGetter: () => '',
-        whitelistedDomains: ['testapi.jarpiscloud.nl']
+        whitelistedDomains: [environment.API_URL]
       }
     }),
 
