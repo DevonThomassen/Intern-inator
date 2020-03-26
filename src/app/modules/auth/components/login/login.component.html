@@ -24,4 +24,6 @@
       <a>register now!</a> -->
     </nz-form-control>
   </nz-form-item>
+  <nz-alert nzType="error" nzCloseable *ngIf="hasError" (nzOnClose)="afterClose()" nzMessage="Wrong email/password">
+  </nz-alert>
 </form>

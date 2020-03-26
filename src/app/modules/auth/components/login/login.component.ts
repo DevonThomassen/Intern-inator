@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  afterClose(): void {
+    this.hasError = false;
+  }
+
   submitForm(): void {
     this.loading = true;
     const credentials = {
