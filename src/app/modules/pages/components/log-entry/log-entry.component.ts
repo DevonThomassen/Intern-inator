@@ -13,7 +13,7 @@ export class LogEntryComponent implements OnInit {
   defaultValues = {
     startTime: new Date(0, 0, 0, 9, 0, 0),
     endTime: new Date(0, 0, 0, 17, 0, 0)
-  }
+  };
   disabled = true;
   outputString: string;
 
@@ -24,7 +24,7 @@ export class LogEntryComponent implements OnInit {
       endTime: new FormControl(null),
       content: new FormControl('')
     })
-  })
+  });
 
   constructor() { }
 
