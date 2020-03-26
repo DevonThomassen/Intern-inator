@@ -15,7 +15,7 @@ const routes: Routes = [
     canActivate: [AuthenticatedGuard],
     children: [
       {
-        path: 'pages',
+        path: '',
         loadChildren: () => import('./modules/pages/pages.module').then(m => m.PagesModule)
       },
       {
