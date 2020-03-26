@@ -32,7 +32,7 @@ export class AuthenticationService {
     return !!this.getToken();
   }
 
-  public login(credentials: ICredentials): Observable<{ token: string }> {
+  public login(credentials: ICredentials, r: boolean): Observable<{ token: string }> {
     return this.http.post('auth/login', credentials).pipe(
       tap((data: { token: string }) => {
         this.currentToken.next(data.token);
@@ -43,6 +43,8 @@ export class AuthenticationService {
   }
 
   public logout() {
-
+    this.currentUser.next(null);
+    this.currentToken.next(null);
+    this.router.navigate(['auth/login']);
   }
 }
