@@ -18,7 +18,14 @@ export class AuthenticationService {
     private http: HttpClient,
     private router: Router,
     private helper: JwtHelperService
-  ) { }
+  ) {
+    const savedToken = localStorage.getItem('Token');
+
+    if (!savedToken) { return; }
+    this.currentToken.next(savedToken);
+    this.currentUser.next(this.helper.decodeToken(savedToken));
+
+  }
 
   public getUser() {
     return this.currentUser;
@@ -38,6 +45,10 @@ export class AuthenticationService {
         this.currentToken.next(data.token);
         this.currentUser.next(this.helper.decodeToken(this.currentToken.value));
         this.router.navigate(['']);
+
+        if (r) {
+          localStorage.setItem('Token', this.getToken());
+        }
       })
     );
   }
