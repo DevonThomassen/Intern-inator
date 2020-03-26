@@ -1,4 +1,13 @@
-<p>log-entry works!</p>
-<nz-date-picker [(ngModel)]="date" [nzFormat]="dateFormat"></nz-date-picker>
-<h1>{{date | date: 'EEEE dd MMMM yyyy'}}</h1>
-<textarea rows="4" nz-input [(ngModel)]="inputValue" [disabled]="disabled"></textarea>
+<h1>Log-Entry</h1>
+<form [formGroup]="logForm" (ngSubmit)="submit()">
+  <nz-date-picker formControlName="date" [nzFormat]="dateFormat"></nz-date-picker>
+  <h1>{{logForm.value.date | date: 'EEEE dd MMMM yyyy'}}</h1>
+  <div formGroupName="data">
+    <nz-time-picker formControlName="startTime" nzFormat="HH:mm" [nzMinuteStep]="15" [nzDefaultOpenValue]="defaultValues.startTime"></nz-time-picker>
+    <nz-time-picker formControlName="endTime" nzFormat="HH:mm" [nzMinuteStep]="15" [nzDefaultOpenValue]="defaultValues.endTime"></nz-time-picker>
+    <textarea formControlName="content" rows="4" nz-input></textarea> <!--[disabled]="disabled"-->
+  </div>
+    <button nz-button nzType="primary" nzBlock>Primary</button>
+</form>
+<pre nz-paragraph nzCopyable nzCopyText="sdffsdfsfsfd">{{outputString}}</pre>
+  
