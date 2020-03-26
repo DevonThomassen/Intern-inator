@@ -1,0 +1,4 @@
+<p>log-entry works!</p>
+<nz-date-picker [(ngModel)]="date" [nzFormat]="dateFormat"></nz-date-picker>
+<h1>{{date | date: 'EEEE dd MMMM yyyy'}}</h1>
+<textarea rows="4" nz-input [(ngModel)]="inputValue" [disabled]="disabled"></textarea>
