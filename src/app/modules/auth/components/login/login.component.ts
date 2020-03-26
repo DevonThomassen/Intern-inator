@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
-    // remember: new FormControl(true)
+    remember: new FormControl(true)
   });
 
   loading = false;
@@ -25,7 +25,12 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     this.loading = true;
-    this.auth.login(this.loginForm.value).subscribe(
+    const credentials = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
+    };
+    const r = this.loginForm.value.remember;
+    this.auth.login(credentials, r).subscribe(
       () => {
         this.loading = false;
       },
