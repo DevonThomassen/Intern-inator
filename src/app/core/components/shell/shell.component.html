@@ -28,6 +28,12 @@
           </li>
         </ul>
       </li>
+      <li nz-menu-item nzOpen nzTitle="Logout">
+        <a (click)="auth.logout()" routerLink="/">
+          <i nz-icon nzType="disconnect"></i>
+          <span>Logout</span>
+        </a>
+      </li>
     </ul>
   </nz-sider>
   <nz-layout>
